@@ -28,6 +28,7 @@ RUN npm run build
 # Add gosu and remove useless files
 RUN curl -L https://github.com/tianon/gosu/releases/download/1.10/gosu-amd64 > /usr/sbin/gosu
 RUN chmod +x /usr/sbin/gosu
+RUN dpkg -P --force-all golang-1.9-go
 RUN apt-get autoremove -y
 RUN rm -rf /var/lib/apt/lists/*
 RUN apt-get clean
