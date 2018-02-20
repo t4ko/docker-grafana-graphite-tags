@@ -19,8 +19,8 @@ WORKDIR	/src/github.com/grafana/grafana
 RUN	export PATH=$PATH:/usr/lib/go-1.9/bin && \
 	go run build.go setup
 RUN npm install -g yarn
-RUN yarn config set proxy $proxy
-RUN yarn config set https-proxy $proxy
+RUN if [ "x$proxy" != "x" ] ; then yarn config set proxy $proxy ; fi
+RUN if [ "x$proxy" != "x" ] ; then yarn config set https-proxy $proxy ; fi
 RUN	yarn install --pure-lockfile
 RUN npm run build
 

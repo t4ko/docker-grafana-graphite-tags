@@ -22,7 +22,7 @@ if [ ! -z "${GF_INSTALL_PLUGINS}" ]; then
   done
 fi
 
-exec gosu grafana ./bin/grafana-server              \
+exec gosu grafana /bin/grafana-server              \
   --homepath="/src/github.com/grafana/grafana" \
   --config="$GF_PATHS_CONFIG"                           \
   cfg:default.log.mode="console"                        \
